@@ -6,7 +6,8 @@
     <title>Mes Cours - L3 Maths</title>
     <style>
         body {
-            background-color: #0b0f19;
+            /* Fond spatial avec dégradé et effet d'étoiles subtil */
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -31,6 +32,7 @@
             margin-bottom: 5px;
             letter-spacing: 2px;
             color: #f0f6fc;
+            text-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
         }
         p {
             color: #8b949e;
@@ -51,13 +53,14 @@
             position: absolute;
             width: 220px;
             height: 290px;
-            background: #161b22;
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             cursor: pointer;
-            transition: transform 0.5s ease, opacity 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             text-decoration: none;
@@ -68,11 +71,11 @@
             margin-top: -145px;
         }
 
-        /* Zoom stable au survol */
+        /* Zoom au survol de la souris */
         .card:hover {
             transform: scale(1.06) !important;
             border-color: #58a6ff;
-            box-shadow: 0 15px 40px rgba(88, 166, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(88, 166, 255, 0.4);
             z-index: 100 !important;
         }
 
@@ -118,36 +121,36 @@
         <!-- Scène en orbite elliptique -->
         <div class="orbit-scene" id="orbitScene">
             
-            <!-- Cours 1 -->
+            <!-- Cours 1 : Algèbre Commutative (Illustration structure/graphe abstrait) -->
             <div class="card" onclick="selectCard(0)" data-href="cours/algebre.html">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Algèbre">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Algèbre">
                 <div class="card-body">
                     <div class="card-title">📘 Algèbre Commutative</div>
                     <div class="card-desc">Anneaux, idéaux et modules.</div>
                 </div>
             </div>
 
-            <!-- Cours 2 -->
+            <!-- Cours 2 : Intégration (Illustration courbe/calcul d'aire) -->
             <div class="card" onclick="selectCard(1)" data-href="cours/integration.html">
-                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Intégration">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Intégration">
                 <div class="card-body">
                     <div class="card-title">📈 Intégration</div>
                     <div class="card-desc">Théorie de la mesure et Lebesgue.</div>
                 </div>
             </div>
 
-            <!-- Cours 3 -->
+            <!-- Cours 3 : Probabilité (Illustration loi normale / statistiques) -->
             <div class="card" onclick="selectCard(2)" data-href="cours/probabilite.html">
-                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&auto=format&fit=crop&q=80" alt="Probabilité">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="Probabilité">
                 <div class="card-body">
                     <div class="card-title">🎲 Probabilité</div>
                     <div class="card-desc">Variables aléatoires et lois.</div>
                 </div>
             </div>
 
-            <!-- Cours 4 -->
+            <!-- Cours 4 : Équations Différentielles (Illustration flux dynamique / vecteurs) -->
             <div class="card" onclick="selectCard(3)" data-href="cours/équa dif.html">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
                 <div class="card-body">
                     <div class="card-title">📉 Équations Différentielles</div>
                     <div class="card-desc">Systèmes dynamiques et résolutions.</div>
@@ -172,28 +175,28 @@
                 let diff = (i - activeIndex + total) % total;
                 
                 if (diff === 0) {
-                    // Carte au premier plan (centre net)
+                    // Carte au premier plan fixe et parfaitement nette
                     card.style.transform = "translate(0px, 0px) scale(1)";
                     card.style.zIndex = "50";
                     card.style.opacity = "1";
                     card.style.filter = "blur(0px)";
                 } else {
-                    // Cartes en arrière-plan réparties proprement sur l'ellipse
+                    // Cartes en arrière-plan fixes sur l'ellipse
                     let angle = 0;
-                    if (diff === 1) angle = Math.PI / 3;        // Bas droite
-                    else if (diff === 2) angle = Math.PI;       // Fond centre
-                    else if (diff === 3) angle = (2 * Math.PI) / 3; // Bas gauche
+                    if (diff === 1) angle = Math.PI / 3;        
+                    else if (diff === 2) angle = Math.PI;       
+                    else if (diff === 3) angle = (2 * Math.PI) / 3; 
 
-                    let radiusX = 250; // Largeur de l'ellipse
-                    let radiusY = 70;  // Hauteur de l'ellipse
+                    let radiusX = 260; 
+                    let radiusY = 75;  
 
                     let x = Math.cos(angle) * radiusX;
                     let y = Math.sin(angle) * radiusY - 10;
 
-                    card.style.transform = `translate(${x}px, ${y}px) scale(0.7)`;
+                    card.style.transform = `translate(${x}px, ${y}px) scale(0.72)`;
                     card.style.zIndex = "10";
                     card.style.opacity = "0.45";
-                    card.style.filter = "blur(1.5px)";
+                    card.style.filter = "blur(1px)";
                 }
             });
         }
