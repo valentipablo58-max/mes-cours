@@ -15,16 +15,19 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
+            overflow: hidden;
         }
         .container {
             text-align: center;
-            max-width: 1000px;
+            max-width: 600px;
             width: 100%;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         h1 {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             margin-bottom: 5px;
             letter-spacing: 2px;
             color: #f0f6fc;
@@ -32,79 +35,74 @@
         p {
             color: #8b949e;
             margin-bottom: 40px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
-        /* Conteneur du swipe horizontal */
-        .carousel {
-            display: flex;
-            gap: 25px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 20px 10px;
-            scrollbar-width: thin;
-            scrollbar-color: #30363d #0d1117;
-            width: 100%;
+
+        /* Conteneur de la pile de cartes 3D */
+        .stack-container {
+            position: relative;
+            width: 320px;
+            height: 420px;
+            perspective: 1000px;
+            margin-bottom: 30px;
         }
-        .carousel::-webkit-scrollbar {
-            height: 8px;
-        }
-        .carousel::-webkit-scrollbar-thumb {
-            background: #30363d;
-            border-radius: 4px;
-        }
-        /* Carte de cours avec image */
+
+        /* Style d'une carte de cours */
         .card {
-            flex: 0 0 280px;
-            scroll-snap-align: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
             background: #161b22;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
             overflow: hidden;
-            text-decoration: none;
-            color: white;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             display: flex;
             flex-direction: column;
-            text-align: left;
+            text-decoration: none;
+            color: white;
+            transform-origin: center center;
         }
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #58a6ff;
-            box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
-        }
-        .card-img {
+
+        .card img {
             width: 100%;
-            height: 160px;
+            height: 240px;
             object-fit: cover;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .card-body {
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 5px;
+            text-align: left;
         }
+
         .card-title {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #ffffff;
         }
+
         .card-desc {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #8b949e;
         }
-        footer {
-            margin-top: 50px;
-            color: #484f58;
-            font-size: 0.9rem;
-        }
-        .swipe-hint {
+
+        .hint {
             font-size: 0.85rem;
             color: #58a6ff;
-            margin-top: 10px;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            color: #484f58;
+            font-size: 0.85rem;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -112,53 +110,108 @@
 
     <div class="container">
         <h1>PABLO VALENTI</h1>
-        <p>Espace de consultation interactive — L3 Mathématiques</p>
+        <p>Espace de cours interactif — L3 Mathématiques</p>
 
-        <!-- Carrousel avec effet de swipe / défilement horizontal -->
-        <div class="carousel">
-            <!-- Cours 1 : Algèbre Commutative -->
-            <a href="cours/algebre.html" class="card">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Algèbre" class="card-img">
+        <!-- Pile de cartes -->
+        <div class="stack-container" id="cardStack">
+            
+            <!-- Cours 1 -->
+            <div class="card" onclick="handleCardClick(this)" data-href="cours/algebre.html">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Algèbre">
                 <div class="card-body">
                     <div class="card-title">📘 Algèbre Commutative</div>
                     <div class="card-desc">Anneaux, idéaux et modules.</div>
                 </div>
-            </a>
+            </div>
 
-            <!-- Cours 2 : Intégration -->
-            <a href="cours/integration.html" class="card">
-                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Intégration" class="card-img">
+            <!-- Cours 2 -->
+            <div class="card" onclick="handleCardClick(this)" data-href="cours/integration.html">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Intégration">
                 <div class="card-body">
                     <div class="card-title">📈 Intégration</div>
                     <div class="card-desc">Théorie de la mesure et Lebesgue.</div>
                 </div>
-            </a>
+            </div>
 
-            <!-- Cours 3 : Probabilité -->
-            <a href="cours/probabilite.html" class="card">
-                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&auto=format&fit=crop&q=80" alt="Probabilité" class="card-img">
+            <!-- Cours 3 -->
+            <div class="card" onclick="handleCardClick(this)" data-href="cours/probabilite.html">
+                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&auto=format&fit=crop&q=80" alt="Probabilité">
                 <div class="card-body">
                     <div class="card-title">🎲 Probabilité</div>
                     <div class="card-desc">Variables aléatoires et lois.</div>
                 </div>
-            </a>
+            </div>
 
-            <!-- Cours 4 : Équations Différentielles -->
-            <a href="cours/équa dif.html" class="card">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles" class="card-img">
+            <!-- Cours 4 -->
+            <div class="card" onclick="handleCardClick(this)" data-href="cours/équa dif.html">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
                 <div class="card-body">
                     <div class="card-title">📉 Équations Différentielles</div>
                     <div class="card-desc">Systèmes dynamiques et résolutions.</div>
                 </div>
-            </a>
+            </div>
+
         </div>
-        
-        <div class="swipe-hint">← Glissez / Swipez pour explorer les cours →</div>
+
+        <div class="hint">Clique sur une carte pour la passer au premier plan (ou double-clique pour ouvrir le cours)</div>
 
         <footer>
             UBO Brest — Propulsé par GitHub Pages
         </footer>
     </div>
+
+    <script>
+        const stack = document.getElementById('cardStack');
+        let cards = Array.from(stack.getElementsByClassName('card'));
+
+        function updateStack() {
+            cards.forEach((card, index) => {
+                // La carte au sommet (index 0)
+                if (index === 0) {
+                    card.style.transform = "translateY(0px) scale(1)";
+                    card.style.zIndex = "10";
+                    card.style.opacity = "1";
+                    card.style.pointerEvents = "auto";
+                } 
+                // Les cartes en arrière-plan (décalées vers le bas et légèrement réduites)
+                else {
+                    let offsetY = index * 20; 
+                    let scale = 1 - (index * 0.05);
+                    card.style.transform = `translateY(${offsetY}px) scale(${scale})`;
+                    card.style.zIndex = `${10 - index}`;
+                    card.style.opacity = `${1 - (index * 0.2)}`;
+                    card.style.pointerEvents = "auto";
+                }
+            });
+        }
+
+        let lastClickTime = 0;
+        function handleCardClick(card) {
+            let currentTime = new Date().getTime();
+            let index = cards.indexOf(card);
+
+            // Si la carte cliquée est déjà au premier plan et qu'on clique une 2e fois rapidement -> Ouvre le cours
+            if (index === 0 && (currentTime - lastClickTime < 400)) {
+                window.location.href = card.getAttribute('data-href');
+                return;
+            }
+
+            lastClickTime = currentTime;
+
+            // Si on clique sur une carte en arrière-plan, on la passe tout devant
+            if (index > 0) {
+                cards.splice(index, 1); // Retire de sa position
+                cards.unshift(card);     // La remet en premier (index 0)
+                
+                // Réinsère proprement dans le HTML
+                cards.forEach(c => stack.appendChild(c));
+                updateStack();
+            }
+        }
+
+        // Initialisation au chargement
+        updateStack();
+    </script>
 
 </body>
 </html>
