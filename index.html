@@ -6,7 +6,10 @@
     <title>Mes Cours - L3 Maths</title>
     <style>
         body {
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            /* Image de fond spatiale avec un filtre sombre par-dessus pour garder la lisibilité */
+            background: linear-gradient(rgba(9, 10, 15, 0.75), rgba(9, 10, 15, 0.85)), 
+                        url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1920&auto=format&fit=crop&q=80') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -31,7 +34,7 @@
             margin-bottom: 5px;
             letter-spacing: 2px;
             color: #f0f6fc;
-            text-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+            text-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
         }
         p {
             color: #8b949e;
@@ -52,14 +55,13 @@
             position: absolute;
             width: 220px;
             height: 290px;
-            background: rgba(22, 27, 34, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(22, 27, 34, 0.88);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
             cursor: pointer;
-            /* Seule la transition de déplacement par clic est animée */
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
             display: flex;
             flex-direction: column;
@@ -71,10 +73,9 @@
             margin-top: -145px;
         }
 
-        /* AUCUN MOUVEMENT AU SURVOL : Seul le curseur change en 'pointer' */
         .card:hover {
             border-color: #58a6ff;
-            box-shadow: 0 15px 40px rgba(88, 166, 255, 0.3);
+            box-shadow: 0 20px 45px rgba(88, 166, 255, 0.4);
         }
 
         .card img {
@@ -104,9 +105,10 @@
         }
 
         footer {
-            color: #484f58;
+            color: #8b949e;
             font-size: 0.85rem;
             margin-top: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
@@ -173,13 +175,11 @@
                 let diff = (i - activeIndex + total) % total;
                 
                 if (diff === 0) {
-                    // Carte au premier plan (centrée, fixe, nette)
                     card.style.transform = "translate(0px, 0px) scale(1)";
                     card.style.zIndex = "50";
                     card.style.opacity = "1";
                     card.style.filter = "blur(0px)";
                 } else {
-                    // Cartes en arrière-plan sur l'ellipse (stables)
                     let angle = 0;
                     if (diff === 1) angle = Math.PI / 3;        
                     else if (diff === 2) angle = Math.PI;       
