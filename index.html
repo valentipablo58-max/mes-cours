@@ -6,7 +6,7 @@
     <title>Mes Cours - L3 Maths</title>
     <style>
         body {
-            background-color: #0d1117;
+            background-color: #0b0f19;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -19,7 +19,7 @@
         }
         .container {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             padding: 20px;
             display: flex;
@@ -27,50 +27,50 @@
             align-items: center;
         }
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             margin-bottom: 5px;
             letter-spacing: 2px;
             color: #f0f6fc;
         }
         p {
             color: #8b949e;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-size: 1rem;
         }
 
-        /* Scène ellipse */
-        .ellipse-scene {
+        /* Scène orbitale (type ellipse) */
+        .orbit-scene {
             position: relative;
-            width: 650px;
-            height: 380px;
-            margin-bottom: 20px;
+            width: 750px;
+            height: 420px;
+            margin-bottom: 10px;
         }
 
         /* Style des cartes */
         .card {
             position: absolute;
-            width: 240px;
-            height: 320px;
+            width: 220px;
+            height: 290px;
             background: #161b22;
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             cursor: pointer;
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.5s ease, opacity 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             text-decoration: none;
             color: white;
             left: 50%;
             top: 50%;
-            margin-left: -120px; /* Centre la carte (moitié de la largeur) */
-            margin-top: -160px;  /* Centre la carte (moitié de la hauteur) */
+            margin-left: -110px;
+            margin-top: -145px;
         }
 
-        /* Effet de zoom au survol de la souris */
+        /* Zoom stable au survol */
         .card:hover {
-            transform: scale(1.08) !important;
+            transform: scale(1.06) !important;
             border-color: #58a6ff;
             box-shadow: 0 15px 40px rgba(88, 166, 255, 0.3);
             z-index: 100 !important;
@@ -78,13 +78,13 @@
 
         .card img {
             width: 100%;
-            height: 170px;
+            height: 150px;
             object-fit: cover;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .card-body {
-            padding: 15px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -93,27 +93,19 @@
 
         .card-title {
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ffffff;
         }
 
         .card-desc {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #8b949e;
-        }
-
-        .hint {
-            font-size: 0.85rem;
-            color: #58a6ff;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 10px;
         }
 
         footer {
             color: #484f58;
             font-size: 0.85rem;
-            margin-top: 15px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -121,10 +113,10 @@
 
     <div class="container">
         <h1>PABLO VALENTI</h1>
-        <p>Espace de cours interactif — L3 Mathématiques</p>
+        <p>Espace de cours — L3 Mathématiques</p>
 
-        <!-- Scène en ellipse -->
-        <div class="ellipse-scene" id="ellipseScene">
+        <!-- Scène en orbite elliptique -->
+        <div class="orbit-scene" id="orbitScene">
             
             <!-- Cours 1 -->
             <div class="card" onclick="selectCard(0)" data-href="cours/algebre.html">
@@ -164,8 +156,6 @@
 
         </div>
 
-        <div class="hint">Clique sur une carte pour l'amener au premier plan (ou l'ouvrir si elle y est déjà)</div>
-
         <footer>
             UBO Brest — Propulsé par GitHub Pages
         </footer>
@@ -173,58 +163,50 @@
 
     <script>
         const cards = Array.from(document.querySelectorAll('.card'));
-        let activeIndex = 0; // La carte active au premier plan
+        let activeIndex = 0; 
 
         function updatePositions() {
             const total = cards.length;
             
             cards.forEach((card, i) => {
-                // Calcule la position relative par rapport à la carte active
                 let diff = (i - activeIndex + total) % total;
                 
                 if (diff === 0) {
-                    // --- CARTE AU PREMIER PLAN ---
+                    // Carte au premier plan (centre net)
                     card.style.transform = "translate(0px, 0px) scale(1)";
                     card.style.zIndex = "50";
                     card.style.opacity = "1";
                     card.style.filter = "blur(0px)";
-                    card.style.pointerEvents = "auto";
                 } else {
-                    // --- CARTES EN ARRIÈRE-PLAN SUR L'ELLIPSE ---
-                    // Répartition autour de l'ellipse en fonction de la position (diff)
+                    // Cartes en arrière-plan réparties proprement sur l'ellipse
                     let angle = 0;
-                    if (diff === 1) angle = Math.PI / 4;       // Légèrement à droite derrière
-                    else if (diff === 2) angle = Math.PI;       // Tout au fond au centre
-                    else if (diff === 3) angle = (3 * Math.PI) / 4; // Légèrement à gauche derrière
+                    if (diff === 1) angle = Math.PI / 3;        // Bas droite
+                    else if (diff === 2) angle = Math.PI;       // Fond centre
+                    else if (diff === 3) angle = (2 * Math.PI) / 3; // Bas gauche
 
-                    // Paramètres de l'ellipse (largeur et hauteur du cercle orbital)
-                    let radiusX = 180; 
-                    let radiusY = 40;
+                    let radiusX = 250; // Largeur de l'ellipse
+                    let radiusY = 70;  // Hauteur de l'ellipse
 
                     let x = Math.cos(angle) * radiusX;
-                    let y = Math.sin(angle) * radiusY - 30; // Légèrement surélevé
+                    let y = Math.sin(angle) * radiusY - 10;
 
-                    card.style.transform = `translate(${x}px, ${y}px) scale(0.75)`;
+                    card.style.transform = `translate(${x}px, ${y}px) scale(0.7)`;
                     card.style.zIndex = "10";
-                    card.style.opacity = "0.5";
-                    card.style.filter = "blur(1px)";
-                    card.style.pointerEvents = "auto";
+                    card.style.opacity = "0.45";
+                    card.style.filter = "blur(1.5px)";
                 }
             });
         }
 
         function selectCard(index) {
             if (index === activeIndex) {
-                // Si la carte est déjà au premier plan, un clic l'ouvre directement
                 window.location.href = cards[index].getAttribute('data-href');
             } else {
-                // Sinon, elle devient la carte active principale
                 activeIndex = index;
                 updatePositions();
             }
         }
 
-        // Initialisation
         updatePositions();
     </script>
 
