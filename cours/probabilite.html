@@ -24,6 +24,7 @@
         .container {
             max-width: 850px;
             width: 100%;
+            box-sizing: border-box;
         }
         .back-btn {
             display: inline-block;
@@ -48,7 +49,6 @@
         h1 { color: #ffffff; font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 15px rgba(88, 166, 255, 0.3); }
         h2 { color: #58a6ff; font-size: 1.5rem; margin-top: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 8px; }
         h3 { color: #f0f6fc; font-size: 1.2rem; margin-top: 25px; }
-        h4 { color: #8b949e; font-size: 1.05rem; margin-top: 20px; font-style: italic; }
 
         .content {
             background: rgba(22, 27, 34, 0.88);
@@ -58,6 +58,15 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             line-height: 1.8;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Permet de faire défiler proprement les équations trop larges au lieu de les faire dépasser */
+        .content p, .content div {
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
         }
 
         ul, ol { margin-top: 10px; margin-bottom: 15px; }
@@ -69,6 +78,7 @@
             padding: 15px 20px;
             margin: 15px 0;
             border-radius: 0 8px 8px 0;
+            overflow-x: auto;
         }
 
         footer {
@@ -84,7 +94,6 @@
     <div class="container">
         <a href="../index.html" class="back-btn">← Retour à l'accueil</a>
         
-        <!-- Image illustrative en lien avec les probabilités -->
         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&auto=format&fit=crop&q=80" alt="Probabilités" class="banner">
         
         <div class="content">
