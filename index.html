@@ -6,7 +6,6 @@
     <title>Mes Cours - L3 Maths</title>
     <style>
         body {
-            /* Fond spatial avec dégradé et effet d'étoiles subtil */
             background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -48,19 +47,20 @@
             margin-bottom: 10px;
         }
 
-        /* Style des cartes */
+        /* Style des cartes (stables au survol) */
         .card {
             position: absolute;
             width: 220px;
             height: 290px;
-            background: rgba(22, 27, 34, 0.85);
+            background: rgba(22, 27, 34, 0.9);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             cursor: pointer;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            /* Seule la transition de déplacement par clic est animée */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
             display: flex;
             flex-direction: column;
             text-decoration: none;
@@ -71,12 +71,10 @@
             margin-top: -145px;
         }
 
-        /* Zoom au survol de la souris */
+        /* AUCUN MOUVEMENT AU SURVOL : Seul le curseur change en 'pointer' */
         .card:hover {
-            transform: scale(1.06) !important;
             border-color: #58a6ff;
-            box-shadow: 0 15px 40px rgba(88, 166, 255, 0.4);
-            z-index: 100 !important;
+            box-shadow: 0 15px 40px rgba(88, 166, 255, 0.3);
         }
 
         .card img {
@@ -121,7 +119,7 @@
         <!-- Scène en orbite elliptique -->
         <div class="orbit-scene" id="orbitScene">
             
-            <!-- Cours 1 : Algèbre Commutative (Illustration structure/graphe abstrait) -->
+            <!-- Cours 1 : Algèbre Commutative -->
             <div class="card" onclick="selectCard(0)" data-href="cours/algebre.html">
                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Algèbre">
                 <div class="card-body">
@@ -130,7 +128,7 @@
                 </div>
             </div>
 
-            <!-- Cours 2 : Intégration (Illustration courbe/calcul d'aire) -->
+            <!-- Cours 2 : Intégration -->
             <div class="card" onclick="selectCard(1)" data-href="cours/integration.html">
                 <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Intégration">
                 <div class="card-body">
@@ -139,7 +137,7 @@
                 </div>
             </div>
 
-            <!-- Cours 3 : Probabilité (Illustration loi normale / statistiques) -->
+            <!-- Cours 3 : Probabilité -->
             <div class="card" onclick="selectCard(2)" data-href="cours/probabilite.html">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="Probabilité">
                 <div class="card-body">
@@ -148,7 +146,7 @@
                 </div>
             </div>
 
-            <!-- Cours 4 : Équations Différentielles (Illustration flux dynamique / vecteurs) -->
+            <!-- Cours 4 : Équations Différentielles -->
             <div class="card" onclick="selectCard(3)" data-href="cours/équa dif.html">
                 <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
                 <div class="card-body">
@@ -175,13 +173,13 @@
                 let diff = (i - activeIndex + total) % total;
                 
                 if (diff === 0) {
-                    // Carte au premier plan fixe et parfaitement nette
+                    // Carte au premier plan (centrée, fixe, nette)
                     card.style.transform = "translate(0px, 0px) scale(1)";
                     card.style.zIndex = "50";
                     card.style.opacity = "1";
                     card.style.filter = "blur(0px)";
                 } else {
-                    // Cartes en arrière-plan fixes sur l'ellipse
+                    // Cartes en arrière-plan sur l'ellipse (stables)
                     let angle = 0;
                     if (diff === 1) angle = Math.PI / 3;        
                     else if (diff === 2) angle = Math.PI;       
