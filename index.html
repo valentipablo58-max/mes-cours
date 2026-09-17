@@ -9,77 +9,155 @@
             background-color: #0d1117;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            margin: 0;
+            overflow-x: hidden;
         }
-        .container { text-align: center; max-width: 900px; padding: 20px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 2px; color: #f0f6fc; }
-        p { color: #8b949e; margin-bottom: 40px; font-size: 1.1rem; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+        .container {
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            color: #f0f6fc;
+        }
+        p {
+            color: #8b949e;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        /* Conteneur du swipe horizontal */
+        .carousel {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #30363d #0d1117;
             width: 100%;
         }
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .carousel::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+        /* Carte de cours avec image */
         .card {
-            background: linear-gradient(135deg, rgba(33, 38, 45, 0.8), rgba(22, 27, 34, 0.9));
+            flex: 0 0 280px;
+            scroll-snap-align: center;
+            background: #161b22;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 25px 15px;
+            overflow: hidden;
             text-decoration: none;
             color: white;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            text-align: left;
         }
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: #58a6ff;
-            box-shadow: 0 12px 40px 0 rgba(88, 166, 255, 0.2);
-            background: linear-gradient(135deg, rgba(48, 54, 61, 0.9), rgba(33, 38, 45, 1));
+            box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
         }
-        .icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .card-title { font-weight: 600; font-size: 1rem; text-align: center; }
-        footer { margin-top: 50px; color: #484f58; font-size: 0.9rem; }
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+        footer {
+            margin-top: 50px;
+            color: #484f58;
+            font-size: 0.9rem;
+        }
+        .swipe-hint {
+            font-size: 0.85rem;
+            color: #58a6ff;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>PABLO VALENTI</h1>
-        <p>Espace de consultation — L3 Mathématiques</p>
+        <p>Espace de consultation interactive — L3 Mathématiques</p>
 
-        <div class="grid">
-            <!-- Lien vers la page d'algèbre -->
+        <!-- Carrousel avec effet de swipe / défilement horizontal -->
+        <div class="carousel">
+            <!-- Cours 1 : Algèbre Commutative -->
             <a href="cours/algebre.html" class="card">
-                <div class="icon">📘</div>
-                <div class="card-title">Algèbre Commutative</div>
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Algèbre" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">📘 Algèbre Commutative</div>
+                    <div class="card-desc">Anneaux, idéaux et modules.</div>
+                </div>
             </a>
 
-            <!-- Lien vers la page d'intégration -->
+            <!-- Cours 2 : Intégration -->
             <a href="cours/integration.html" class="card">
-                <div class="icon">📈</div>
-                <div class="card-title">Intégration</div>
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Intégration" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">📈 Intégration</div>
+                    <div class="card-desc">Théorie de la mesure et Lebesgue.</div>
+                </div>
             </a>
 
-            <!-- Lien vers la page de proba -->
+            <!-- Cours 3 : Probabilité -->
             <a href="cours/probabilite.html" class="card">
-                <div class="icon">🎲</div>
-                <div class="card-title">Probabilité</div>
+                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&auto=format&fit=crop&q=80" alt="Probabilité" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">🎲 Probabilité</div>
+                    <div class="card-desc">Variables aléatoires et lois.</div>
+                </div>
             </a>
 
-            <!-- Lien vers la page d'équa diff -->
-            <a href="cours/equadiff.html" class="card">
-                <div class="icon">📉</div>
-                <div class="card-title">Équations Différentielles</div>
+            <!-- Cours 4 : Équations Différentielles -->
+            <a href="cours/équa dif.html" class="card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">📉 Équations Différentielles</div>
+                    <div class="card-desc">Systèmes dynamiques et résolutions.</div>
+                </div>
             </a>
         </div>
+        
+        <div class="swipe-hint">← Glissez / Swipez pour explorer les cours →</div>
+
+        <footer>
+            UBO Brest — Propulsé par GitHub Pages
+        </footer>
     </div>
 
 </body>
