@@ -10,4 +10,4 @@ Bienvenue sur mon archive personnelle de cours universitaires. Retrouvez ci-dess
 * [📉 **Équations différentielles**](cours/équa dif.md)
 
 ---
-*UBO Brest — Propulsé par GitHub Pages & Jekyll*
+*UBO Brest *
