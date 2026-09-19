@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Magistral : Géographie Physique et Humaine de la France — Préparation Concours</title>
+    <title>Cours Intégral (CM1, CM2, CM3) : Géographie de la France — Préparation Concours</title>
     <style>
         :root {
             --bg-color: #fdfbf7;
@@ -71,7 +71,7 @@
         }
 
         .article-header h1 {
-            font-size: 2.7rem;
+            font-size: 2.6rem;
             color: #111;
             margin-bottom: 15px;
             font-weight: normal;
@@ -85,7 +85,7 @@
         }
 
         .lead {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #333;
             margin-bottom: 40px;
             text-align: justify;
@@ -96,10 +96,23 @@
             padding-bottom: 15px;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 65px;
+        .cm-banner {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 12px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 75px;
             margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
             color: #111;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 8px;
@@ -107,9 +120,9 @@
         }
 
         h3 {
-            font-size: 1.35rem;
-            margin-top: 45px;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 12px;
             color: var(--accent-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 600;
@@ -132,86 +145,28 @@
             text-align: justify;
         }
 
-        .interactive-figure {
-            margin: 45px 0;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .interactive-figure:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-color: var(--accent-color);
-        }
-
-        .interactive-figure img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .figcaption {
-            padding: 15px 20px;
+        .focus-box {
+            background-color: var(--accent-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 25px 30px;
+            margin: 35px 0;
+            border-radius: 0 8px 8px 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 0.9rem;
-            color: #444;
-            background: #faf8f5;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
         }
 
-        .click-badge {
-            background: var(--accent-color);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 12px;
-            font-size: 0.78rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .anecdote-box {
-            display: none;
-            background-color: var(--interactive-bg);
-            color: #f1f5f9;
-            padding: 30px;
-            margin-top: -10px;
-            margin-bottom: 45px;
-            border-radius: 0 0 8px 8px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            border-left: 4px solid #38bdf8;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .anecdote-box h4 {
+        .focus-box h4 {
             margin-top: 0;
-            color: #38bdf8;
+            color: var(--accent-color);
             font-size: 1.15rem;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .anecdote-box p {
+        .focus-box p {
             margin-bottom: 0;
             font-size: 0.98rem;
-            color: #cbd5e1;
+            color: #334155;
             text-align: left;
             line-height: 1.6;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .timeline-grid {
@@ -262,134 +217,116 @@
 
     <header>
         <a href="../index.html" class="back-link">← Retour à l'accueil</a>
-        <div class="site-title">PRÉPARATION CONCOURS — GÉOGRAPHIE DE LA FRANCE (INTÉGRALE)</div>
+        <div class="site-title">PRÉPARATION CONCOURS (IAE MESSAGE) — GÉOGRAPHIE DE LA FRANCE</div>
     </header>
 
     <div class="container">
 
         <div class="article-header">
             <h1>Géographie de la France : Physique, Humaine et Territoriale</h1>
-            <div class="subtitle">Reliefs, hydrographie détaillée, détroits, densités de population et aménagement du territoire</div>
+            <div class="subtitle">Cours Magistral Intégral (CM1, CM2, CM3) — Analyse structurelle et spatiale du territoire national</div>
         </div>
 
         <p class="lead">
-            La France métropolitaine et ultramarine présente une exceptionnelle complexité spatiale. Entre l'organisation radiale de ses grands fleuves, la position stratégique de ses façades maritimes et de son unique véritable détroit frontalier (le Pas-de-Calais), et l'inégale répartition de sa population sur le territoire, ce cours offre une vision exhaustive et technique indispensable pour les épreuves de concours.
+            Ce cours complet de géographie de la France intègre l'ensemble des connaissances académiques fondamentales : l'ossature physique et l'hydrographie des bassins, les dynamiques démographiques fines (densités, répartition par habitant, flux migratoires), ainsi que les politiques d'aménagement du territoire et de métropolisation.
         </p>
 
-        <!-- FIGURE 1 -->
-        <div class="interactive-figure" onclick="toggleAnecdote('anecdote1')">
-            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&auto=format&fit=crop&q=80" alt="Carte topographique et paysages de France">
-            <div class="figcaption">
-                <span><strong>Figure 1 :</strong> Vue d'ensemble de l'Hexagone, de ses façades maritimes et de ses grands axes fluviaux.</span>
-                <span class="click-badge">💡 Secret géopolitique (Cliquez)</span>
-            </div>
-        </div>
-        <div id="anecdote1" class="anecdote-box">
-            <h4>🔎 Le secret géostratégique : La ZEE française et l'outre-mer</h4>
-            <p>La France possède le <strong>deuxième espace maritime mondial</strong> (Zone Économique Exclusive - ZEE) avec plus de 10 millions de km², répartis dans tous les océans grâce à ses territoires d'outre-mer (Guadeloupe, Martinique, Réunion, Mayotte, Nouvelle-Calédonie, Polynésie, etc.). C'est un levier géopolitique et économique colossal.</p>
-        </div>
+        <!-- ================= CM 1 ================= -->
+        <div class="cm-banner">COURS MAGISTRAL 1 : L'ossature physique, les milieux naturels et les façades maritimes</div>
 
-        <h2>I. Géographie Physique : Reliefs, Fleuves et Détroits</h2>
-
-        <h3>A. L'ossature orographique et les bassins sédimentaires</h3>
+        <h2>I. La structure géologique et les grands reliefs de l'Hexagone</h2>
         <p>
-            Le territoire métropolitain s'articule autour d'une grande ligne de partage des eaux et d'une dualité géologique nette :
+            Le territoire métropolitain français présente une grande diversité géomorphologique structurée par une opposition historique entre des ensembles sédimentaires ouverts, des massifs anciens érodés et de jeunes chaînes de montagnes plissées :
         </p>
         <ul>
-            <li><strong>Le Bassin parisien et le Bassin aquitain :</strong> Vastes cuvettes sédimentaires caractérisées par des sols fertiles, propices à une agriculture intensive et alimentées par un réseau hydrographique dense.</li>
-            <li><strong>Les massifs anciens (hercyniens) :</strong> Le Massif central (vaste château d'eau français), le Massif armoricain, les Vosges, les Ardennes et le Morvan, caractérisés par des sommets arrondis (les "ballons" ou "puys").</li>
-            <li><strong>Les jeunes chaînes plissées :</strong> Les Alpes (culminant au Mont-Blanc, 4 810 m) à l'est et les Pyrénées au sud, qui forment des frontières naturelles abruptes et des contraintes majeures pour les liaisons terrestres transfrontalières.</li>
+            <li><strong>Les grands bassins sédimentaires :</strong> Le Bassin parisien et le Bassin aquitain constituent de vastes cuvettes de sédimentation façonnées par l'érosion fluviale, caractérisées par des sols fertiles qui ont favorisé l'enracinement historique de l'agriculture intensive.</li>
+            <li><strong>Les massifs anciens (hercyniens) :</strong> Plus bas et aux sommets arrondis (comme le Massif central, le Massif armoricain, les Vosges, les Ardennes et le Morvan), ils relèvent de vieilles chaînes de montagnes usées par des centaines de millions d'années d'érosion.</li>
+            <li><strong>Les jeunes chaînes alpines et pyrénéennes :</strong> Les Alpes à l'est (culminant au Mont Blanc à 4 810 mètres, point culminant d'Europe occidentale) et les Pyrénées au sud forment des barrières topographiques abruptes et des contraintes fortes pour les flux de transport transfrontaliers.</li>
         </ul>
 
-        <h3>B. L'Hydrographie : Les Cinq Grands Fleuves</h3>
+        <h2>II. L'hydrographie : Réseau fluvial et façades maritimes</h2>
         <p>
-            L'hydrographie française est remarquable par sa structure quasi-radiale centrée sur le centre-est de la France. On distingue cinq fleuves principaux :
+            L'organisation hydrographique de la France métropolitaine s'articule autour de cinq fleuves majeurs qui structurent l'espace national et les grands axes d'échange :
         </p>
         <ul>
-            <li><strong>La Loire :</strong> Le plus long fleuve de France (plus de 1 000 km). Prenant sa source au Gerbier de Jonc (Massif central), elle traverse le centre du pays pour se jeter dans l'océan Atlantique par un estuaire à Saint-Nazaire. Son régime est pluvio-nival avec de fortes crues historiques.</li>
-            <div></div>
-            <li><strong>La Seine :</strong> Fleuve économique par excellence. Née sur le plateau de Langres, elle arrose Paris et Rouen avant de se jeter dans la Manche au Havre. Son estuaire forme le grand port industrialo-portuaire de l'axe Seine (Le Havre-Rouen-Paris).</li>
-            <li><strong>Le Rhône :</strong> Fleuve alpin puissant issu du glacier du Rhône en Suisse, il entre en France par le lac Léman, reçoit la Saône à Lyon, puis descend vers la Méditerranée en formant un delta (la Camargue). C'est le fleuve au débit le plus élevé de France, aménagé pour l'hydroélectricité et la navigation.</li>
-            <li><strong>La Garonne :</strong> Née dans les Pyrénées espagnoles, elle arrose Toulouse, forme l'estuaire de la Gironde avec la Dordogne au niveau de Bordeaux, et possède un régime marqué par des crues soudaines (notamment au printemps).</li>
-            <li><strong>Le Rhin :</strong> Fleuve frontalier majeur avec l'Allemagne sur une grande portion, il constitue l'artère fluviale la plus fréquentée d'Europe, reliant les ports de la mer du Nord (Rotterdam) au cœur industriel du continent.</li>
+            <li><strong>La Loire :</strong> Le plus long fleuve de France (plus de 1 000 km), prenant sa source au Gerbier de Jonc dans le Massif central pour s'écouler vers l'océan Atlantique à travers un vaste estuaire.</li>
+            <li><strong>La Seine :</strong> Axe économique névralgique prenant sa source sur le plateau de Langres, traversant Paris et Rouen avant de se jeter dans la Manche au Havre (formant l'axe industrialo-portuaire de la Seine).</li>
+            <li><strong>Le Rhône :</strong> Fleuve alpin puissant issu du glacier du Rhône en Suisse, alimenté par la Saône à Lyon, et s'écoulant vers la Méditerranée par un delta (la Camargue). C'est l'artère de l'hydroélectricité et de la navigation fluviale méridionale.</li>
+            <li><strong>La Garonne :</strong> Née dans les Pyrénées espagnoles, elle irrigue Toulouse et forme l'estuaire de la Gironde avec la Dordogne au niveau de Bordeaux.</li>
+            <li><strong>Le Rhin :</strong> Fleuve frontalier majeur avec l'Allemagne, artère fluviale la plus fréquentée d'Europe reliant les ports de la mer du Nord au cœur économique continental.</li>
         </ul>
 
-        <h3>C. Les Façades Maritimes et le Détroit du Pas-de-Calais</h3>
-        <p>
-            La France dispose de trois grandes façades maritimes ouvertes sur la mondialisation : la façade de la <em>Manche/Mer du Nord</em> (insertion dans la Northern Range), la façade <em>atlantique</em>, et la façade <em>méditerranéenne</em> (ouverte sur le canal de Suez et l'Asie).
-        </p>
-        <p>
-            <strong>Le détroit du Pas-de-Calais (Strait of Dover) :</strong> C'est le seul véritable détroit maritime d'importance stratégique bordant la France. Large de seulement 33 kilomètres à son point le plus resserré entre Calais et Douvres, il relie la mer du Nord à la Manche et constitue **l'espace maritime le plus fréquenté du monde** en termes de trafic de navires marchands et de ferries, doublé sous sa surface par le tunnel sous la Manche.
-        </p>
-
-        <!-- FIGURE 2 -->
-        <div class="interactive-figure" onclick="toggleAnecdote('anecdote2')">
-            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&auto=format&fit=crop&q=80" alt="Densité et peuplement en France">
-            <div class="figcaption">
-                <span><strong>Figure 2 :</strong> La carte des densités de population et le contraste des vides et des pleins.</span>
-                <span class="click-badge">💡 Secret démographique (Cliquez)</span>
-            </div>
-        </div>
-        <div id="anecdote2" class="anecdote-box">
-            <h4>🔎 Le concept démographique : La "Diagonale du vide" et la densité moyenne</h4>
-            <p>La densité de population en France métropolitaine s'établit à environ <strong>106 à 115 habitants par kilomètre carré</strong>, ce qui place le pays dans la moyenne haute européenne. Cependant, cette moyenne masque une fracture spatiale majeure : la célèbre « diagonale du vide » (ou diagonale des faibles densités), qui traverse le pays de la Meuse aux Landes, affiche par endroit des densités inférieures à 30 hab/km², contrastant violemment avec l'hyper-densité de l'Île-de-France (plus de 1 000 hab/km²).</p>
+        <div class="focus-box">
+            <h4>🔎 Focus Stratégique : Le détroit du Pas-de-Calais et la ZEE française</h4>
+            <p>Le détroit du Pas-de-Calais (large de seulement 33 km entre la France et l'Angleterre) est l'espace maritime le plus fréquenté au monde pour le transport de marchandises. Par ailleurs, grâce à ses territoires ultramarins disséminés dans tous les océans, la France possède la <strong>deuxième Zone Économique Exclusive (ZEE) mondiale</strong> avec plus de 10 millions de km².</p>
         </div>
 
-        <h2>II. Géographie Humaine : Répartition par Habitant et Démographie</h2>
 
-        <h3>A. Les indicateurs démographiques clés</h3>
-        <ul>
-            <li><strong>Population totale :</strong> Plus de 68 millions d'habitants (métropole et outre-mer inclus).</li>
-            <li><strong>Espérance de vie :</strong> L'une des plus élevées au monde (plus de 85 ans pour les femmes, environ 79-80 ans pour les hommes), bien que confrontée au défi du vieillissement de la « génération du baby-boom ».</li>
-            <li><strong>Taux de fécondité :</strong> Longtemps le plus élevé d'Europe (autour de 1,9-2 enfants par femme), il subit un tassement sensible ces dernières années, tout en restant supérieur à la moyenne de l'Union européenne.</li>
-        </ul>
+        <!-- ================= CM 2 ================= -->
+        <div class="cm-banner">COURS MAGISTRAL 2 : Géographie humaine, démographie et dynamiques de peuplement</div>
 
-        <h3>B. La répartition spatiale : Inégalités et flux migratoires internes</h3>
+        <h2>I. Démographie et structures de la population</h2>
         <p>
-            La répartition de la population par habitant sur le territoire national obéit à trois grandes dynamiques spatiales :
+            Avec plus de 68 millions d'habitants (métropole et outre-mer), la France se distingue par une démographie longtemps dynamique au sein de l'Union européenne, bien qu'elle fasse face à des mutations structurelles profondes :
         </p>
         <ul>
-            <li><strong>La littoralisation :</strong> Les littoraux français concentrent une part croissante de la population et des activités économiques, attirant les retraités et les actifs.</li>
-            <li><strong>L'héliotropisme :</strong> L'attirance vers les régions ensoleillées du Sud (Occitanie, Provence-Alpes-Côte d'Azur) et de l'Ouest atlantique (Nouvelle-Aquitaine, Bretagne) au détriment des régions industrielles du Nord et de l'Est.</li>
-            <li><strong>La périurbanisation et la rurbanisation :</strong> L'étalement des villes grignote les espaces agricoles périphériques autour des métropoles, créant de vastes zones de navetteurs (les "bassin d'emploi").</li>
+            <li><strong>Le vieillissement de la population :</strong> L'augmentation de l'espérance de vie (plus de 85 ans pour les femmes) combinée au ralentissement de la natalité entraîne le vieillissement progressif de la pyramide des âges (« papy-boom »).</li>
+            <li><strong>La répartition par habitant et densités :</strong> La densité moyenne s'établit à environ 110 habitants par kilomètre carré. Cependant, cette moyenne masque de fortes disparités territoriales.</li>
         </ul>
 
-        <h2>III. Chronologie et Repères d'Aménagement du Territoire</h2>
+        <h2>II. Les contrastes spatiaux : Entre "pleins" et "vides" démographiques</h2>
+        <p>
+            L'espace français est marqué par une inégale mise en valeur humaine :
+        </p>
+        <ul>
+            <li><strong>La "Diagonale du vide" (ou des faibles densités) :</strong> S'étendant de la Meuse aux Landes, cet espace rural intérieur subit des densités parfois inférieures à 30 hab/km², contrastant avec les régions fortement urbanisées.</li>
+            <li><strong>L'héliotropisme et la littoralisation :</strong> Les flux migratoires internes privilégient massivement les régions du Sud et de l'Ouest atlantique, ainsi que les franges côtières, au détriment des anciennes régions industrielles du Nord et de l'Est.</li>
+            <li><strong>La périurbanisation :</strong> L'étalement urbain autour des grands pôles englobe de vastes couronnes périurbaines, modifiant profondément les modes de vie et les mobilités pendulaires (les navetteurs).</li>
+        </ul>
+
+
+        <!-- ================= CM 3 ================= -->
+        <div class="cm-banner">COURS MAGISTRAL 3 : Aménagement du territoire, métropolisation et espaces productifs</div>
+
+        <h2>I. La macrocéphalie urbaine et la métropolisation</h2>
+        <p>
+            Le système urbain français est historiquement marqué par une forte <strong>macrocéphalie urbaine</strong> : l'agglomération parisienne (Île-de-France) concentre près de 20% de la population nationale, l'essentiel des sièges sociaux du CAC 40, des institutions politiques et de la recherche de pointe.
+        </p>
+        <p>
+            Face à ce déséquilibre, la politique d'<strong>aménagement du territoire</strong> (initiée dès la création de la DATAR en 1963) a cherché à promouvoir un rééquilibrage en renforçant les grandes métropoles régionales (Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes) pour qu'elles jouent un rôle moteur dans la mondialisation en réseau.
+        </p>
+
+        <h2>II. Les espaces productifs : Agriculture et Industrie</h2>
+        <ul>
+            <li><strong>L'agriculture :</strong> La France demeure la **première puissance agricole de l'Union européenne**. Elle s'appuie sur des régions de grande culture céréalière intensive (Bassin parisien), des zones d'élevage et des productions viticoles et agroalimentaires à haute valeur ajoutée bénéficiant de labels d'origine (AOC/AOP).</li>
+            <li><strong>L'industrie et les technopoles :</strong> Malgré les vagues de désindustrialisation passées, la France maintient des fleurons technologiques de rang mondial (aéronautique à Toulouse, spatial, pharmacie, luxe, énergie nucléaire). L'essor des <em>pôles de compétitivité</em> favorise l'innovation par la synergie entre universités, centres de recherche et entreprises.</li>
+        </ul>
+
+        <h2>III. Repères et Chronologie de l'Aménagement Français</h2>
         <div class="timeline-grid">
             <div class="timeline-card">
                 <span>1963</span>
-                Création de la DATAR pour rééquilibrer le développement entre Paris et le "désert français".
+                Création de la DATAR (Délégation à l'aménagement du territoire).
             </div>
             <div class="timeline-card">
                 <span>1982</span>
-                Lois Defferre : acte I de la décentralisation (transfert des pouvoirs aux régions et départements).
+                Lois Defferre : Acte I de la décentralisation (transfert de compétences aux régions).
             </div>
             <div class="timeline-card">
-                <span>1994</span>
-                Inauguration officielle du tunnel sous la Manche (liaison ferroviaire trans-détroit).
+                <span>1992 / 1999</span>
+                Lois Voynet et Chevènement renforçant l'intercommunalité et l'aménagement durable.
             </div>
             <div class="timeline-card">
                 <span>2015</span>
-                Réforme territoriale : passage de 22 à 13 régions métropolitaines pour renforcer la compétitivité européenne.
+                Loi NOTRe : Réduction du nombre de régions administratives à 13 en métropole.
             </div>
         </div>
 
     </div>
 
     <footer>
-        UBO Brest — Préparation intensive IAE Message — Module de Géographie de la France
+        UBO Brest — Préparation intensive IAE Message — Module de Géographie de la France (CM1, CM2, CM3)
     </footer>
-
-    <script>
-        function toggleAnecdote(id) {
-            const box = document.getElementById(id);
-            if (box.style.display === "block") {
-                box.style.display = "none";
-            } else {
-                box.style.display = "block";
-            }
-        }
-    </script>
 
 </body>
 </html>
