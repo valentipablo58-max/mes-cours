@@ -6,7 +6,6 @@
     <title>Mes Cours - L3 Maths</title>
     <style>
         body {
-            /* Image de fond spatiale avec un filtre sombre par-dessus pour garder la lisibilité */
             background: linear-gradient(rgba(9, 10, 15, 0.75), rgba(9, 10, 15, 0.85)), 
                         url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1920&auto=format&fit=crop&q=80') no-repeat center center fixed;
             background-size: cover;
@@ -42,7 +41,6 @@
             font-size: 1rem;
         }
 
-        /* Scène orbitale (type ellipse) */
         .orbit-scene {
             position: relative;
             width: 750px;
@@ -50,7 +48,6 @@
             margin-bottom: 10px;
         }
 
-        /* Style des cartes (stables au survol) */
         .card {
             position: absolute;
             width: 220px;
@@ -118,7 +115,7 @@
         <h1>PABLO VALENTI</h1>
         <p>Espace de cours — L3 Mathématiques</p>
 
-        <!-- Scène en orbite elliptique -->
+        <!-- Scène en orbite elliptique (6 cartes) -->
         <div class="orbit-scene" id="orbitScene">
             
             <!-- Cours 1 : Algèbre Commutative -->
@@ -157,6 +154,24 @@
                 </div>
             </div>
 
+            <!-- Cours 5 : Histoire -->
+            <div class="card" onclick="selectCard(4)" data-href="histoire/histoire.html">
+                <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=600&auto=format&fit=crop&q=80" alt="Histoire">
+                <div class="card-body">
+                    <div class="card-title">🏛️ Histoire</div>
+                    <div class="card-desc">Contexte historique et exposés.</div>
+                </div>
+            </div>
+
+            <!-- Cours 6 : Histoire du 18ème -->
+            <div class="card" onclick="selectCard(5)" data-href="cours/histoire18ème.html">
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&auto=format&fit=crop&q=80" alt="Histoire du 18ème">
+                <div class="card-body">
+                    <div class="card-title">📜 Histoire du 18ème</div>
+                    <div class="card-desc">Philosophie, sciences et mutations.</div>
+                </div>
+            </div>
+
         </div>
 
         <footer>
@@ -180,18 +195,14 @@
                     card.style.opacity = "1";
                     card.style.filter = "blur(0px)";
                 } else {
-                    let angle = 0;
-                    if (diff === 1) angle = Math.PI / 3;        
-                    else if (diff === 2) angle = Math.PI;       
-                    else if (diff === 3) angle = (2 * Math.PI) / 3; 
-
-                    let radiusX = 260; 
+                    let angle = (diff / total) * 2 * Math.PI - Math.PI / 2;
+                    let radiusX = 290; 
                     let radiusY = 75;  
 
                     let x = Math.cos(angle) * radiusX;
                     let y = Math.sin(angle) * radiusY - 10;
 
-                    card.style.transform = `translate(${x}px, ${y}px) scale(0.72)`;
+                    card.style.transform = `translate(${x}px, ${y}px) scale(0.68)`;
                     card.style.zIndex = "10";
                     card.style.opacity = "0.45";
                     card.style.filter = "blur(1px)";
