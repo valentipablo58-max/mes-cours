@@ -17,11 +17,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         .container {
             text-align: center;
-            max-width: 900px;
+            max-width: 1100px;
             width: 100%;
             padding: 20px;
             display: flex;
@@ -41,18 +41,20 @@
             font-size: 1rem;
         }
 
+        /* Scène adaptée pour espacer correctement les cartes sans superposition */
         .orbit-scene {
             position: relative;
-            width: 750px;
-            height: 420px;
+            width: 900px;
+            height: 380px;
             margin-bottom: 10px;
         }
 
+        /* Style des cartes */
         .card {
             position: absolute;
-            width: 220px;
-            height: 290px;
-            background: rgba(22, 27, 34, 0.88);
+            width: 210px;
+            height: 280px;
+            background: rgba(22, 27, 34, 0.92);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
@@ -66,8 +68,8 @@
             color: white;
             left: 50%;
             top: 50%;
-            margin-left: -110px;
-            margin-top: -145px;
+            margin-left: -105px;
+            margin-top: -140px;
         }
 
         .card:hover {
@@ -77,7 +79,7 @@
 
         .card img {
             width: 100%;
-            height: 150px;
+            height: 140px;
             object-fit: cover;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -115,7 +117,7 @@
         <h1>PABLO VALENTI</h1>
         <p>Espace de cours — L3 Mathématiques</p>
 
-        <!-- Scène en orbite elliptique (6 cartes) -->
+        <!-- Scène orbitale (4 cartes de maths bien espacées) -->
         <div class="orbit-scene" id="orbitScene">
             
             <!-- Cours 1 : Algèbre Commutative -->
@@ -154,24 +156,6 @@
                 </div>
             </div>
 
-            <!-- Cours 5 : Histoire -->
-            <div class="card" onclick="selectCard(4)" data-href="histoire/histoire.html">
-                <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=600&auto=format&fit=crop&q=80" alt="Histoire">
-                <div class="card-body">
-                    <div class="card-title">🏛️ Histoire</div>
-                    <div class="card-desc">Contexte historique et exposés.</div>
-                </div>
-            </div>
-
-            <!-- Cours 6 : Histoire du 18ème -->
-            <div class="card" onclick="selectCard(5)" data-href="cours/histoire18ème.html">
-                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&auto=format&fit=crop&q=80" alt="Histoire du 18ème">
-                <div class="card-body">
-                    <div class="card-title">📜 Histoire du 18ème</div>
-                    <div class="card-desc">Philosophie, sciences et mutations.</div>
-                </div>
-            </div>
-
         </div>
 
         <footer>
@@ -190,22 +174,26 @@
                 let diff = (i - activeIndex + total) % total;
                 
                 if (diff === 0) {
+                    // Carte centrale active (mise en avant nette)
                     card.style.transform = "translate(0px, 0px) scale(1)";
                     card.style.zIndex = "50";
                     card.style.opacity = "1";
                     card.style.filter = "blur(0px)";
+                    card.style.pointerEvents = "auto";
                 } else {
+                    // Calcul d'une orbite elliptique large pour éviter toute superposition
                     let angle = (diff / total) * 2 * Math.PI - Math.PI / 2;
-                    let radiusX = 290; 
-                    let radiusY = 75;  
+                    let radiusX = 310; // Écartement horizontal accru
+                    let radiusY = 50;  // Aplatissement vertical élégant
 
                     let x = Math.cos(angle) * radiusX;
-                    let y = Math.sin(angle) * radiusY - 10;
+                    let y = Math.sin(angle) * radiusY;
 
-                    card.style.transform = `translate(${x}px, ${y}px) scale(0.68)`;
+                    card.style.transform = `translate(${x}px, ${y}px) scale(0.75)`;
                     card.style.zIndex = "10";
-                    card.style.opacity = "0.45";
-                    card.style.filter = "blur(1px)";
+                    card.style.opacity = "0.5";
+                    card.style.filter = "blur(0.5px)";
+                    card.style.pointerEvents = "auto";
                 }
             });
         }
