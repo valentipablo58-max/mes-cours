@@ -160,7 +160,7 @@
         <h1>PABLO VALENTI</h1>
         <p class="subtitle">Espace centralisé de préparation aux concours & L3 Mathématiques</p>
 
-        <!-- Barre d'onglets -->
+        <!-- Barre d'onglets de filtrage thématique -->
         <div class="tabs">
             <button class="tab-btn active" onclick="filterCategory('all', this)">📚 Tous</button>
             <button class="tab-btn" onclick="filterCategory('math', this)">📐 Mathématiques</button>
@@ -170,11 +170,11 @@
             <button class="tab-btn" onclick="filterCategory('news', this)">📰 Actualités</button>
         </div>
 
-        <!-- Grille des cours connectée aux noms exacts du dossier /cours -->
+        <!-- Grille des cours (liens pointant vers le dossier cours/) -->
         <div class="cards-grid">
             
             <!-- Mathématiques -->
-            <a href="algebre.html" class="card" data-category="math">
+            <a href="cours/algebre.html" class="card" data-category="math">
                 <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Algèbre">
                 <div class="card-body">
                     <div class="card-title">📘 Algèbre Commutative</div>
@@ -182,7 +182,7 @@
                 </div>
             </a>
 
-            <a href="integration.html" class="card" data-category="math">
+            <a href="cours/integration.html" class="card" data-category="math">
                 <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Intégration">
                 <div class="card-body">
                     <div class="card-title">📈 Intégration</div>
@@ -190,7 +190,7 @@
                 </div>
             </a>
 
-            <a href="probabilite.html" class="card" data-category="math">
+            <a href="cours/probabilite.html" class="card" data-category="math">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="Probabilité">
                 <div class="card-body">
                     <div class="card-title">🎲 Probabilité</div>
@@ -198,7 +198,7 @@
                 </div>
             </a>
 
-            <a href="equadiff.html" class="card" data-category="math">
+            <a href="cours/equadiff.html" class="card" data-category="math">
                 <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
                 <div class="card-body">
                     <div class="card-title">📉 Équations Différentielles</div>
@@ -207,7 +207,7 @@
             </a>
 
             <!-- Histoire & Géographie -->
-            <a href="histoire19ème.html" class="card" data-category="history-geo">
+            <a href="cours/histoire19ème.html" class="card" data-category="history-geo">
                 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80" alt="Histoire 19ème">
                 <div class="card-body">
                     <div class="card-title">🏛️ Histoire du 19ème</div>
@@ -215,7 +215,7 @@
                 </div>
             </a>
 
-            <a href="histoire20ème.html" class="card" data-category="history-geo">
+            <a href="cours/histoire20ème.html" class="card" data-category="history-geo">
                 <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&auto=format&fit=crop&q=80" alt="Histoire 20ème">
                 <div class="card-body">
                     <div class="card-title">🌍 Histoire du 20ème</div>
@@ -223,7 +223,7 @@
                 </div>
             </a>
 
-            <a href="histoire21ème.html" class="card" data-category="history-geo">
+            <a href="cours/histoire21ème.html" class="card" data-category="history-geo">
                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80" alt="Histoire 21ème">
                 <div class="card-body">
                     <div class="card-title">🌐 Histoire du 21ème</div>
@@ -231,7 +231,7 @@
                 </div>
             </a>
 
-            <a href="géofr.html" class="card" data-category="history-geo">
+            <a href="cours/géofr.html" class="card" data-category="history-geo">
                 <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&auto=format&fit=crop&q=80" alt="Géo de la France">
                 <div class="card-body">
                     <div class="card-title">🇫🇷 Géo de la France</div>
@@ -239,7 +239,7 @@
                 </div>
             </a>
 
-            <a href="géomonde.html" class="card" data-category="history-geo">
+            <a href="cours/géomonde.html" class="card" data-category="history-geo">
                 <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format&fit=crop&q=80" alt="Géo Monde">
                 <div class="card-body">
                     <div class="card-title">🗺️ Géo Europe & Monde</div>
@@ -248,7 +248,7 @@
             </a>
 
             <!-- Économie & Social -->
-            <a href="éco1.html" class="card" data-category="eco-social">
+            <a href="cours/éco1.html" class="card" data-category="eco-social">
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80" alt="Éco 1">
                 <div class="card-body">
                     <div class="card-title">📊 Économie 1</div>
@@ -256,7 +256,7 @@
                 </div>
             </a>
 
-            <a href="éco2.html" class="card" data-category="eco-social">
+            <a href="cours/éco2.html" class="card" data-category="eco-social">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" alt="Éco 2">
                 <div class="card-body">
                     <div class="card-title">📈 Économie 2</div>
@@ -264,7 +264,7 @@
                 </div>
             </a>
 
-            <a href="social1.html" class="card" data-category="eco-social">
+            <a href="cours/social1.html" class="card" data-category="eco-social">
                 <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop&q=80" alt="Social 1">
                 <div class="card-body">
                     <div class="card-title">⚖️ Social 1</div>
@@ -272,7 +272,7 @@
                 </div>
             </a>
 
-            <a href="social2.html" class="card" data-category="eco-social">
+            <a href="cours/social2.html" class="card" data-category="eco-social">
                 <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&auto=format&fit=crop&q=80" alt="Social 2">
                 <div class="card-body">
                     <div class="card-title">👥 Social 2</div>
@@ -281,7 +281,7 @@
             </a>
 
             <!-- Culture & Langues -->
-            <a href="cultureetsport.html" class="card" data-category="culture-lang">
+            <a href="cours/cultureetsport.html" class="card" data-category="culture-lang">
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop&q=80" alt="Culture et Sports">
                 <div class="card-body">
                     <div class="card-title">🎭 Culture & Sports</div>
@@ -289,7 +289,7 @@
                 </div>
             </a>
 
-            <a href="anglais.html" class="card" data-category="culture-lang">
+            <a href="cours/anglais.html" class="card" data-category="culture-lang">
                 <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&auto=format&fit=crop&q=80" alt="Anglais">
                 <div class="card-body">
                     <div class="card-title">🇬🇧 Anglais</div>
@@ -297,7 +297,7 @@
                 </div>
             </a>
 
-            <a href="français.html" class="card" data-category="culture-lang">
+            <a href="cours/français.html" class="card" data-category="culture-lang">
                 <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&auto=format&fit=crop&q=80" alt="Français">
                 <div class="card-body">
                     <div class="card-title">✍️ Français</div>
@@ -306,7 +306,7 @@
             </a>
 
             <!-- Actualités -->
-            <a href="actufr.html" class="card" data-category="news">
+            <a href="cours/actufr.html" class="card" data-category="news">
                 <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=600&auto=format&fit=crop&q=80" alt="Actu France">
                 <div class="card-body">
                     <div class="card-title">🇫🇷 Actu France</div>
@@ -314,7 +314,7 @@
                 </div>
             </a>
 
-            <a href="actumonde.html" class="card" data-category="news">
+            <a href="cours/actumonde.html" class="card" data-category="news">
                 <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?w=600&auto=format&fit=crop&q=80" alt="Actu Monde">
                 <div class="card-body">
                     <div class="card-title">🌐 Actu Monde</div>
