@@ -6,7 +6,7 @@
     <title>Espace de Cours — Pablo Valenti</title>
     <style>
         body {
-            background: linear-gradient(rgba(9, 10, 15, 0.8), rgba(9, 10, 15, 0.9)), 
+            background: linear-gradient(rgba(9, 10, 15, 0.85), rgba(9, 10, 15, 0.95)), 
                         url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1920&auto=format&fit=crop&q=80') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             width: 100%;
             padding: 40px 20px;
             display: flex;
@@ -56,7 +56,7 @@
             background: rgba(22, 27, 34, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: #8b949e;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.95rem;
@@ -81,21 +81,21 @@
         /* Grille des cartes de cours */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 25px;
             width: 100%;
-            max-width: 1050px;
+            max-width: 1100px;
         }
 
         .card {
-            background: rgba(22, 27, 34, 0.88);
+            background: rgba(22, 27, 34, 0.9);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             text-decoration: none;
@@ -110,13 +110,19 @@
 
         .card img {
             width: 100%;
-            height: 140px;
+            height: 145px;
             object-fit: cover;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            filter: brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+
+        .card:hover img {
+            filter: brightness(1);
         }
 
         .card-body {
-            padding: 15px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -135,7 +141,7 @@
             line-height: 1.4;
         }
 
-        /* Animation de masquage pour les filtres */
+        /* Classe de masquage pour les filtres d'onglets */
         .card.hide {
             display: none;
         }
@@ -153,30 +159,30 @@
 
     <div class="container">
         <h1>PABLO VALENTI</h1>
-        <p class="subtitle">Espace centralisé de cours — L3 Mathématiques & Modules d'Histoire</p>
+        <p class="subtitle">Espace centralisé de cours — L3 Mathématiques & Concours IAE</p>
 
-        <!-- Barre d'onglets pour trier proprement les cours -->
+        <!-- Barre d'onglets de filtrage -->
         <div class="tabs">
             <button class="tab-btn active" onclick="filterCategory('all', this)">📚 Tous les cours</button>
             <button class="tab-btn" onclick="filterCategory('math', this)">📐 Mathématiques</button>
-            <button class="tab-btn" onclick="filterCategory('history', this)">🏛️ Histoire</button>
+            <button class="tab-btn" onclick="filterCategory('history', this)">🏛️ Histoire & Concours</button>
         </div>
 
-        <!-- Grille propre et claire des cours -->
+        <!-- Grille des cours -->
         <div class="cards-grid">
             
-            <!-- Math 1 : Algèbre Commutative (Image tableau équations / algèbre) -->
+            <!-- Math 1 : Algèbre Commutative -->
             <a href="cours/algebre.html" class="card" data-category="math">
-                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Algèbre Commutative">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Algèbre Commutative">
                 <div class="card-body">
                     <div class="card-title">📘 Algèbre Commutative</div>
                     <div class="card-desc">Anneaux, idéaux et modules.</div>
                 </div>
             </a>
 
-            <!-- Math 2 : Intégration (Image tableau calculs / intégrales) -->
+            <!-- Math 2 : Intégration -->
             <a href="cours/integration.html" class="card" data-category="math">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" alt="Intégration">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" alt="Intégration">
                 <div class="card-body">
                     <div class="card-title">📈 Intégration</div>
                     <div class="card-desc">Théorie de la mesure et Lebesgue.</div>
@@ -192,9 +198,9 @@
                 </div>
             </a>
 
-            <!-- Math 4 : Équations Différentielles -->
-            <a href="cours/équa dif.html" class="card" data-category="math">
-                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
+            <!-- Math 4 : Équations Différentielles (Lien corrigé vers equadiff.html) -->
+            <a href="cours/equadiff.html" class="card" data-category="math">
+                <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=600&auto=format&fit=crop&q=80" alt="Équations Différentielles">
                 <div class="card-body">
                     <div class="card-title">📉 Équations Différentielles</div>
                     <div class="card-desc">Systèmes dynamiques et résolutions.</div>
@@ -202,16 +208,16 @@
             </a>
 
             <!-- Histoire 1 : 19ème siècle -->
-            <a href="cours/histoire19ème.html" class="card" data-category="history">
-                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&auto=format&fit=crop&q=80" alt="Histoire 19ème">
+            <a href="cours/histoire19eme.html" class="card" data-category="history">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80" alt="Histoire 19ème">
                 <div class="card-body">
                     <div class="card-title">🏛️ Histoire du 19ème</div>
-                    <div class="card-desc">Industrie, nations et empires.</div>
+                    <div class="card-desc">Industrie, management et empires.</div>
                 </div>
             </a>
 
             <!-- Histoire 2 : 20ème siècle -->
-            <a href="cours/histoire20ème.html" class="card" data-category="history">
+            <a href="cours/histoire20eme.html" class="card" data-category="history">
                 <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&auto=format&fit=crop&q=80" alt="Histoire 20ème">
                 <div class="card-body">
                     <div class="card-title">🌍 Histoire du 20ème</div>
@@ -220,7 +226,7 @@
             </a>
 
             <!-- Histoire 3 : 21ème siècle -->
-            <a href="cours/histoire21ème.html" class="card" data-category="history">
+            <a href="cours/histoire21eme.html" class="card" data-category="history">
                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80" alt="Histoire 21ème">
                 <div class="card-body">
                     <div class="card-title">🌐 Histoire du 21ème</div>
@@ -237,11 +243,11 @@
 
     <script>
         function filterCategory(category, btn) {
-            // Gestion de l'état actif des boutons d'onglets
+            // Gestion des onglets actifs
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filtrage des cartes
+            // Filtrage dynamique des cartes
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
