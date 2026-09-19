@@ -3,217 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapitre 1 : Espace de probabilités</title>
-    <!-- Intégration de KaTeX pour un rendu mathématique parfait -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-
+    <title>Cours de Probabilité - L3 Maths</title>
     <style>
         body {
             background-color: #ffffff;
-            color: #000000;
+            color: #111111;
             font-family: "Computer Modern Roman", "Times New Roman", Times, serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: justify;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            max-width: 950px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 15px;
+        }
+
+        .btn-style {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #000;
+            padding: 6px 14px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .btn-style:hover {
+            background: #000;
+            color: #fff;
         }
 
         h1 {
-            text-align: center;
-            font-size: 1.8em;
-            margin-top: 40px;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        h2 {
-            font-size: 1.3em;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #000000;
-            padding-bottom: 3px;
-            font-weight: bold;
-        }
-
-        h3 {
-            font-size: 1.1em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-style: italic;
+            font-size: 1.4rem;
+            margin: 0;
             font-weight: normal;
         }
 
-        ul, ol {
-            margin-top: 5px;
-            margin-bottom: 15px;
-            padding-left: 30px;
+        /* Conteneur pour intégrer le PDF Google Drive proprement */
+        .pdf-container {
+            width: 100%;
+            max-width: 950px;
+            height: 82vh;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        li {
-            margin-bottom: 5px;
-        }
-
-        .math-block {
-            text-align: center;
-            margin: 15px 0;
-            overflow-x: auto;
-        }
-
-        /* Style sobre pour les environnements de type théorème / preuve si besoin */
-        .proof {
-            margin-top: 10px;
-            margin-bottom: 15px;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
 
-    <h1>Chapitre 1 : Espace de probabilités</h1>
-
-    <h2>1. La notion d'espace de probabilité</h2>
-
-    <p>L'algèbre de base de la théorie est la donnée d'un triplet $(\Omega, \mathcal{F}, P)$ :</p>
-    <ul>
-        <li>$\Omega$ est un ensemble qui représente les résultats possibles.</li>
-        <li>$\mathcal{F}$ est une tribu sur $\Omega$, c'est-à-dire une famille de sous-ensembles de $\Omega$ qui vérifie :
-            <ol>
-                <li>$\emptyset \in \mathcal{F}$</li>
-                <li>Si $A \in \mathcal{F}$, alors $A^c \in \mathcal{F}$</li>
-                <li>Si $(A_n)_{n \ge 1}$ est une suite d'éléments de $\mathcal{F}$, alors $\displaystyle\bigcup_{n=1}^{\infty} A_n \in \mathcal{F}$</li>
-            </ol>
-        </li>
-    </ul>
-
-    <p>Les éléments de $\mathcal{F}$ sont appelés "évènements" auxquels on souhaite attribuer une probabilité.</p>
-
-    <ul>
-        <li>$P$ est une probabilité sur $(\Omega, \mathcal{F})$, c'est-à-dire une fonction $P : \mathcal{F} \to [0, 1]$ telle que :
-            <ol>
-                <li>$P(\emptyset) = 0$, $P(\Omega) = 1$</li>
-                <li>Si $(A_n)_{n \ge 1}$ est une suite d'évènements disjoints (c'est-à-dire $A_i \cap A_j = \emptyset$ pour $i \neq j$), alors :
-                <div class="math-block">
-                    \[ P\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} P(A_n) \]
-                </div>
-                </li>
-            </ol>
-        </li>
-    </ul>
-
-    <h2>2. Premiers exemples</h2>
-
-    <p>Pour un pile ou face :</p>
-    <div class="math-block">
-        \[ \Omega = \{\text{pile}, \text{face}\} \]
-    </div>
-    <p>La tribu est l'ensemble des parties de $\Omega$ :</p>
-    <div class="math-block">
-        \[ \mathcal{F} = \mathcal{P}(\Omega) = \{\emptyset, \{\text{pile}\}, \{\text{face}\}, \{\text{pile}, \text{face}\}\} \]
-    </div>
-    <p>La probabilité est définie par :</p>
-    <div class="math-block">
-        \[ P(\{\text{pile}\}) = \frac{1}{2}, \quad P(\{\text{face}\}) = \frac{1}{2} \]
-    </div>
-    <p>Pour un ensemble fini $A$, on a :</p>
-    <div class="math-block">
-        \[ P(A) = \frac{\#A}{\#\Omega} = \frac{\text{cardinal de } A}{\text{cardinal de } \Omega} \]
+    <div class="header">
+        <a href="../index.html" class="btn-style">← Accueil</a>
+        <h1>Chapitre 1 : Espace de probabilités</h1>
+        <!-- Lien direct vers votre fichier PDF sur Google Drive -->
+        <a href="https://drive.google.com/file/d/1oE7l9xPyRCaLnFlhT9Bi_6hpPiwfRE_Y/view?usp=drivesdk" target="_blank" class="btn-style">Ouvrir dans Drive ↗</a>
     </div>
 
-    <h2>3. Propriétés élémentaires</h2>
-
-    <p>Soit $(\Omega, \mathcal{F}, P)$ un espace de probabilité.</p>
-
-    <ol>
-        <li>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
-        <li>Si $B \subset A$, alors $P(B) \le P(A)$ et $P(A \setminus B) = P(A) - P(B)$</li>
-        <li>$P(A^c) = 1 - P(A)$</li>
-        <li>$P\left(\bigcup_{n=1}^{\infty} A_n\right) \le \sum_{n=1}^{\infty} P(A_n)$</li>
-        <li>Si $(A_n)_{n \ge 1}$ est croissante (i.e., $A_n \subset A_{n+1}$), alors $P\left(\bigcup_{n=1}^{\infty} A_n\right) = \lim_{n \to \infty} P(A_n)$</li>
-        <li>Si $(A_n)_{n \ge 1}$ est décroissante (i.e., $A_{n+1} \subset A_n$), alors $P\left(\bigcap_{n=1}^{\infty} A_n\right) = \lim_{n \to \infty} P(A_n)$</li>
-    </ol>
-
-    <h3>Preuves</h3>
-
-    <ol>
-        <li>On a $A = (A \setminus B) \sqcup (A \cap B)$ et $B = (B \setminus A) \sqcup (A \cap B)$. 
-        Donc $P(A) = P(A \setminus B) + P(A \cap B)$ et $P(B) = P(B \setminus A) + P(A \cap B)$.
-        De plus, $A \cup B = (A \setminus B) \sqcup (A \cap B) \sqcup (B \setminus A)$.
-        Par additivité :
-        <div class="math-block">
-            \[ P(A \cup B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) = [P(A) - P(A \cap B)] + P(A \cap B) + [P(B) - P(A \cap B)] = P(A) + P(B) - P(A \cap B) \]
-        </div>
-        </li>
-
-        <li>Si $B \subset A$, on a $A = B \sqcup (A \setminus B)$, donc $P(A) = P(B) + P(A \setminus B)$.
-        Comme $P(A \setminus B) \ge 0$, on en déduit que $P(B) \le P(A)$ et que $P(A \setminus B) = P(A) - P(B)$.</li>
-
-        <li>On sait que $\Omega = A \sqcup A^c$, donc $P(\Omega) = P(A) + P(A^c) = 1$, d'où $P(A^c) = 1 - P(A)$.</li>
-
-        <li>Pour la $\sigma$-subadditivité, on pose $B_1 = A_1$ et $B_n = A_n \setminus \left(\bigcup_{k=1}^{n-1} A_k\right)$ pour $n \ge 2$.
-        Les $B_n$ sont disjoints, $B_n \subset A_n$ pour tout $n$, et $\bigcup_{n=1}^{\infty} A_n = \bigcup_{n=1}^{\infty} B_n$.
-        Par additivité et croissance :
-        <div class="math-block">
-            \[ P\left(\bigcup_{n=1}^{\infty} A_n\right) = P\left(\bigcup_{n=1}^{\infty} B_n\right) = \sum_{n=1}^{\infty} P(B_n) \le \sum_{n=1}^{\infty} P(A_n) \]
-        </div>
-        </li>
-
-        <li>Si $(A_n)_{n \ge 1}$ est croissante, on pose $B_1 = A_1$ et $B_n = A_n \setminus A_{n-1}$ pour $n \ge 2$.
-        Alors $\bigcup_{n=1}^{\infty} A_n = \bigcup_{n=1}^{\infty} B_n$ (union disjointe) et $\bigcup_{k=1}^{n} B_k = A_n$.
-        Donc :
-        <div class="math-block">
-            \[ P\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} P(B_n) = \lim_{n \to \infty} \sum_{k=1}^{n} P(B_k) = \lim_{n \to \infty} P\left(\bigcup_{k=1}^{n} B_k\right) = \lim_{n \to \infty} P(A_n) \]
-        </div>
-        </li>
-
-        <li>Si $(A_n)_{n \ge 1}$ est décroissante, alors la suite $(A_n^c)_{n \ge 1}$ est croissante.
-        Par continuité croissante appliquée à $(A_n^c)$ :
-        <div class="math-block">
-            \[ P\left(\bigcup_{n=1}^{\infty} A_n^c\right) = \lim_{n \to \infty} P(A_n^c) \]
-        </div>
-        Par les lois de De Morgan, $\bigcup_{n=1}^{\infty} A_n^c = \left(\bigcap_{n=1}^{\infty} A_n\right)^c$.
-        Donc :
-        <div class="math-block">
-            \[ 1 - P\left(\bigcap_{n=1}^{\infty} A_n\right) = \lim_{n \to \infty} (1 - P(A_n)) = 1 - \lim_{n \to \infty} P(A_n) \]
-        </div>
-        En simplifiant, on obtient :
-        <div class="math-block">
-            \[ P\left(\bigcap_{n=1}^{\infty} A_n\right) = \lim_{n \to \infty} P(A_n) \]
-        </div>
-        </li>
-    </ol>
-
-    <h2>Définition (limsup et liminf d'une suite d'évènements)</h2>
-
-    <p>Si $(A_n)_{n \ge 1}$ est une suite d'évènements, on définit :</p>
-    <div class="math-block">
-        \[
-        \begin{aligned}
-            \limsup_{n \to \infty} A_n &= \bigcap_{n \ge 1} \bigcup_{k \ge n} A_k = \{\omega \in \Omega \mid \omega \text{ appartient à une infinité de } A_n\} \\
-            \liminf_{n \to \infty} A_n &= \bigcup_{n \ge 1} \bigcap_{k \ge n} A_k = \{\omega \in \Omega \mid \omega \text{ appartient à tous les } A_n \text{ à partir d'un certain rang}\}
-        \end{aligned}
-        \]
+    <!-- Lecteur intégré du PDF Google Drive -->
+    <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/1oE7l9xPyRCaLnFlhT9Bi_6hpPiwfRE_Y/preview" allow="autoplay"></iframe>
     </div>
-
-    <h2>Théorème (Lemme de Borel-Cantelli)</h2>
-
-    <p>Soit $(A_n)_{n \ge 1}$ une suite d'évènements. Si $\sum_{n=1}^{\infty} P(A_n) < \infty$, alors :</p>
-    <div class="math-block">
-        \[ P\left(\limsup_{n \to \infty} A_n\right) = 0 \]
-    </div>
-
-    <h3>Preuve</h3>
-    <p>On pose $B_n = \bigcup_{k \ge n} A_k$. La suite $(B_n)_{n \ge 1}$ est décroissante en $n$.
-    On a :</p>
-    <div class="math-block">
-        \[ \limsup_{n \to \infty} A_n = \bigcap_{n \ge 1} B_n \]
-    </div>
-    <p>Comme $(B_n)_{n \ge 1}$ est décroissante, par continuité décroissante :</p>
-    <div class="math-block">
-        \[ P\left(\limsup_{n \to \infty} A_n\right) = P\left(\bigcap_{n \ge 1} B_n\right) = \lim_{n \to \infty} P(B_n) = \lim_{n \to \infty} P\left(\bigcup_{k \ge n} A_k\right) \le \lim_{n \to \infty} \sum_{k=n}^{\infty} P(A_k) = 0 \]
-    </div>
-    <p>car $\sum_{k=1}^{\infty} P(A_n) < \infty$ (reste d'une série convergente donc tend vers 0).</p>
 
 </body>
 </html>
